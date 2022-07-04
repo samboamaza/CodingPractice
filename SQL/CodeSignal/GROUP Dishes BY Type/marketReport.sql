@@ -17,8 +17,8 @@ BEGIN
 	select * 
 	from (select country, count(competitor) as competitors 
 		  from foreignCompetitors
-	group by country
-	order by country asc
+		  group by country
+		  order by country asc) FIRST
 	UNION ALL
     select 'Total:' country, count(competitor) from foreignCompetitors;
 END
